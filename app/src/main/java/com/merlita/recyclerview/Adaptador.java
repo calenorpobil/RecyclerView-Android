@@ -14,9 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class Adaptador extends RecyclerView.Adapter<Adaptador.MiContenedor> {
+public class Adaptador extends RecyclerView.Adapter<Adaptador.MiContenedor>
+    implements View.OnClickListener {
     Context context;
     ArrayList<DatosPersonales> lista;
+    View.OnClickListener escuchador;
 
     @NonNull
     @Override
@@ -34,8 +36,9 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MiContenedor> {
         holder.imagen.setImageResource(R.mipmap.aa);
     }
 
-    public Adaptador(Context context, ArrayList<DatosPersonales> lista) {
-
+    public Adaptador(View.OnClickListener escuchador,
+                     Context context, ArrayList<DatosPersonales> lista) {
+        this.escuchador = escuchador;
         this.context = context;
         this.lista = lista;
     }
@@ -43,6 +46,12 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MiContenedor> {
     @Override
     public int getItemCount() {
         return lista.size();
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(escuchador!=null)
+            escuchador.onClick(view);
     }
 
     public class MiContenedor extends RecyclerView.ViewHolder{
