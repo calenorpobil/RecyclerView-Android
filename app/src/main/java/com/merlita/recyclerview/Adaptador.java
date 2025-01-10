@@ -30,7 +30,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MiContenedor> {
     @Override
     public void onBindViewHolder(@NonNull MiContenedor holder, int position) {
         holder.tvNombre.setText(lista.get(position).getNombre());
-        holder.tvEdad.setText(lista.get(position).getEdad());
+        holder.tvEdad.setText(lista.get(position).getEdad()+"");
         holder.imagen.setImageResource(R.mipmap.aa);
     }
 
@@ -52,8 +52,8 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MiContenedor> {
         public MiContenedor(@NonNull View itemView) {
             super(itemView);
 
-            tvNombre = (TextView) itemView.findViewById(R.id.main);
-            tvEdad = itemView.findViewById(R.id.textView);
+            tvNombre = (TextView) itemView.findViewById(R.id.textView);
+            tvEdad = itemView.findViewById(R.id.tvEdad);
             imagen = itemView.findViewById(R.id.imageView);
 
         }
