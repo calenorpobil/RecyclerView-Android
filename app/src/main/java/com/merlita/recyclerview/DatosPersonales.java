@@ -4,9 +4,15 @@ public class DatosPersonales {
     String nombre;
     int edad;
 
-    public DatosPersonales(String nombre, int edad) {
-        this.nombre = nombre;
-        this.edad = edad;
+    public DatosPersonales(String nombre, int edad) throws miExcepcion{
+        if(edad!=-1 && !nombre.isEmpty()){
+            this.edad = edad;
+            this.nombre = nombre;
+        }else{
+            throw new miExcepcion("No puedes añadir un alumno con campos vacíos. ");
+        }
+        setNombre(nombre);
+        setEdad(edad);
     }
 
     public String getNombre() {

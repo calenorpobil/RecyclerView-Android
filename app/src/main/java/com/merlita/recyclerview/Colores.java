@@ -1,2 +1,7 @@
-package com.merlita.recyclerview;public class Colores {
+package com.merlita.recyclerview;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Colores extends AppCompatActivity {
+
 }

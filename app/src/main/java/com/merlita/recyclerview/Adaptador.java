@@ -2,6 +2,7 @@ package com.merlita.recyclerview;
 
 import android.content.Context;
 import android.text.Layout;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MiContenedor>
         LayoutInflater inflador =
                 (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflador.inflate(R.layout.text_row_item, parent, false);
-        return new Adaptador.MiContenedor(v);
+        return new MiContenedor(v);
     }
 
     @Override
@@ -54,7 +55,9 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MiContenedor>
             escuchador.onClick(view);
     }
 
-    public class MiContenedor extends RecyclerView.ViewHolder{
+    public static class MiContenedor extends RecyclerView.ViewHolder
+            implements View.OnCreateContextMenuListener
+    {
         TextView tvNombre, tvEdad;
         ImageView imagen;
 
@@ -64,6 +67,15 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MiContenedor>
             tvNombre = (TextView) itemView.findViewById(R.id.textView);
             tvEdad = itemView.findViewById(R.id.tvEdad);
             imagen = itemView.findViewById(R.id.imageView);
+            itemView.setOnCreateContextMenuListener(this);
+        }
+
+        @Override
+        public void onCreateContextMenu(ContextMenu contextMenu, View view,
+                                        ContextMenu.ContextMenuInfo contextMenuInfo)
+        {
+            contextMenu.add(getAdapterPosition(), 121, 0, "EDITAR");
+            contextMenu.add(getAdapterPosition(), 122, 1, "BORRAR");
 
         }
     }

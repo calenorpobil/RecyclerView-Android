@@ -1,4 +1,4 @@
-package com.merlita.listview_addmodify.classes;
+package com.merlita.recyclerview;
 
 public class miExcepcion extends Exception {
     public miExcepcion(String message) {

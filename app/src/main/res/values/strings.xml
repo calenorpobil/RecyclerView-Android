@@ -4,4 +4,7 @@
     <string name="imagen">Imagen</string>
     <string name="edad">Edad</string>
     <string name="alta">Alta</string>
+    <string name="numero">Numero</string>
+    <string name="nombre">Nombre</string>
+    <string name="aceptar">Aceptar</string>
 </resources>
