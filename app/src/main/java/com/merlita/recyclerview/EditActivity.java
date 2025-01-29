@@ -12,14 +12,15 @@ import androidx.appcompat.app.AppCompatActivity;
 public class EditActivity extends AppCompatActivity {
     EditText etNombre, etEdad;
     Button bt;
-    Intent upIntent;
+//    Intent upIntent;
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alta);
-        upIntent = getParentActivityIntent();
+        setContentView(R.layout.activity_edit);
+        //upIntent = getParentActivityIntent();
+        Bundle upIntent = this.getIntent().getExtras();
 
         etNombre = findViewById(R.id.etNombre);
         etEdad = findViewById(R.id.etEdad);
@@ -27,8 +28,8 @@ public class EditActivity extends AppCompatActivity {
 
         
 
-        String nombre = upIntent.getStringExtra("NOMBRE");
-        int edad = upIntent.getIntExtra("EDAD", -1);
+        String nombre = upIntent.getString("NOMBRE");
+        int edad = upIntent.getInt("EDAD", -1);
 
         etNombre.setText(nombre);
         etEdad.setText(edad+"");
@@ -47,7 +48,7 @@ public class EditActivity extends AppCompatActivity {
 
         }else{
             i.putExtra("NOMBRE", nombre);
-            i.putExtra("EDAD", Integer.parseInt(edad));
+            i.putExtra("EDAD", edad);
             setResult(RESULT_OK, i);
         }
 

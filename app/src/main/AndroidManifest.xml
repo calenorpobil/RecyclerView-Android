@@ -27,6 +27,9 @@
         <activity android:name=".AltaActivity">
 
         </activity>
+        <activity android:name=".EditActivity">
+
+        </activity>
     </application>
 
 </manifest>

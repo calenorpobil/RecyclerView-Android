@@ -78,7 +78,6 @@ public class MainActivity extends AppCompatActivity
         btAlta.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //lanzadorAlta.launch();
                 Intent i = new Intent(MainActivity.this, AltaActivity.class);
                 lanzadorAlta.launch(i);
                 //setResult(RESULT_OK, i);
@@ -90,10 +89,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        if(item.getItemId() == R.id.item_alta){
+        /*if(item.getItemId() == R.id.item_alta){
             posicionEdicion=-999;
-            lanzadorEdit.launch(new Intent(this, Colores.class));
-        }
+            lanzadorEdit.launch(new Intent(
+                    this, EditActivity.class));
+        }*/
         return true;
     }
 
@@ -104,10 +104,12 @@ public class MainActivity extends AppCompatActivity
         {
             case 121:
                 //MENU --> EDITAR
-                Intent i = new Intent(this, AltaActivity.class);
+                Intent i = new Intent(this, EditActivity.class);
                 posicionEdicion = item.getGroupId();
-                i.putExtra("NOMBRE", lista.get(posicionEdicion).getNombre());
-                i.putExtra("EDAD", lista.get(posicionEdicion).getEdad()+"");
+                String nombre = lista.get(posicionEdicion).getNombre();
+                int edad = lista.get(posicionEdicion).getEdad();
+                i.putExtra("NOMBRE", nombre);
+                i.putExtra("EDAD", edad);
                 lanzadorEdit.launch(i);
                 return true;
             case 122:

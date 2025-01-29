@@ -23,7 +23,9 @@ public class AltaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_alta);
 
         etNombre = findViewById(R.id.etNombre);
+        etNombre.setHint("Nombre del nuevo alumno");
         etEdad = findViewById(R.id.etEdad);
+        etEdad.setHint("Edad del nuevo alumno");
         bt = findViewById(R.id.btVolver);
 
 
@@ -39,7 +41,7 @@ public class AltaActivity extends AppCompatActivity {
             setResult(RESULT_CANCELED);
         }else{
             i.putExtra("NOMBRE", nombre);
-            i.putExtra("EDAD", Integer.parseInt(edad));
+            i.putExtra("EDAD", edad);
             setResult(RESULT_OK, i);
         }
 
